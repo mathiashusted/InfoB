@@ -16,4 +16,7 @@ OUTP 16  # Ausgabe aus Zelle 16
 0        # Enthält Ausgabe
 1        # Enthält die Zahl 1
 
-# Dieses Programm 
+# Dieses Programm führt eine Multiplikation durch.
+# Die Zahl aus Zelle 14 wird [Zelle 15] Mal zum Output addiert
+# Bei jedem Durchlauf wird Zelle 15 um 1 dekrementiert, bis der
+# Zähler bei 0 ankommt.
