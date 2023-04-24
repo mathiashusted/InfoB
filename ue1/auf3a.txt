@@ -1,0 +1,18 @@
+READ INP # Input wird gelesen
+WRITE 16 # Input wird in Zelle 16 geschrieben
+LOAD 16  # Inhalt aus 16 wird ins Rechenwerk wieder geladen
+SUB 17   # Rechenwerk - Zelle 17 (falls 0 => Zählervar. == Eingabe)
+CJUMP 14 # Falls Bedingung erfüllt => springe zur Ausgabe
+LOAD 17  # Falls nicht, lade wieder Zelle 17 (Zählervar.)
+ADD 18   # Inkrementiere Zählervar. um 1
+WRITE 17 # Schreibe Zählervar. in Zelle 17
+GOTO 3   # Beginne wieder von vorne
+
+
+
+
+OUTP 17 # Die Anzahl der Durchläufe wird ausgegeben
+RETURN  # Programm wird beendet
+0       # Hier wird die Eingabe eingelesen
+0       # Diese Variable wird hochgezählt
+1       # Die 1 für die Inkrementierung
