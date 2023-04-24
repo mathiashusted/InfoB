@@ -63,4 +63,10 @@ int main(){
   }
   std::cout << "y: " << y << std::endl;
   // Der Code in den if-Blocks wird nun mit ausgegeben
+
+  //**********************************************************************************************
+  // AUFGABE 2d
+  /* Das Programm überprüft nicht, ob der Nutzer tatsächlich einen Integer eingegeben hat.
+  Gibt er also eine Kommazahl oder gar einen Buchstaben ein, so wird diese gerundet bzw. als 0 gelesen
+  */
 }
