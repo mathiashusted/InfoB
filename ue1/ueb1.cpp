@@ -4,7 +4,10 @@ Mathias Husted, 2023
 (Aufgaben wurden unten bearbeitet)
 */
 
-#include <iostream>
+//**********************************************************************************************
+// AUFGABE 2b
+
+#include <iostream> // Damit wir ein-/ausgeben können, brauchen wir iostream
 
 int main(){
   int x = 2; // Eine ganze Zahl x wird auf 2 gesetzt
