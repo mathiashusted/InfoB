@@ -7,12 +7,36 @@ Mathias Husted, 2023
 //**********************************************************************************************
 // AUFGABE 2b
 
+/*
+Output:
+0
+1
+Info B 2023
+1
+51
+7
+z: 6
+y: 4
+z: 6
+y: 5
+Größe von a 2
+Größe von a+y 4
+Geben Sie eine Zahl ein: 2
+Ihre Zahl ist: 2
+y: 6
+y: 5
+Huhu
+y: 5
+Hallo
+y: 5
+*/
+
 #include <iostream> // Damit wir ein-/ausgeben können, brauchen wir iostream
 
 int main(){
   int x = 2; // Eine ganze Zahl x wird auf 2 gesetzt
   for (int i=0; i<32; i++){ // For schleife: Variable i wird erstellt und auf 0 gesetzt -> solange i < 32 ist, mache weiter, inkrementiere jedes Mal i um 1
-    x=x*2; // x wird um den Faktor 2 erhöht
+    x=x*2; // x wird um den Faktor 2 erhöht, gerät allerdings in einen Überlauf und wird somit zu 0
   } // i existiert nur lokal innerhalb der Schleife
   std::cout << x << std::endl; // x wird ausgegeben
 
