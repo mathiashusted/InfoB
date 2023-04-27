@@ -1,3 +1,4 @@
+// Gruppe M. Husted, A. Malze, S. Kutscher
 /*
 3b) Es gibt in C++ noch eine weitere Schleifenart. Recherchieren Sie welche dies ist. Geben Sie die
 allgemeine Form an und beschreiben Sie die Funktionalität. Denken Sie daran Quellen anzugeben.

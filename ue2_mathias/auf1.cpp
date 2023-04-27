@@ -1,3 +1,4 @@
+// Gruppe M. Husted, A. Malze, S. Kutscher
 #include <iostream>
 
 using namespace std;

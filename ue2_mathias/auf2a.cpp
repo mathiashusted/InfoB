@@ -1,3 +1,4 @@
+// Gruppe M. Husted, A. Malze, S. Kutscher
 #include <iostream>
 
 //2a) Schreiben Sie ein Programm, das eine Zahl von der Konsole liest und die Quersumme einer Zahl

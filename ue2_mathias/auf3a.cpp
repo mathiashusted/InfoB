@@ -1,6 +1,7 @@
+// Gruppe M. Husted, A. Malze, S. Kutscher
 #include <vector>
 
-//Betrachten Sie den folgenden C++-Code und geben Sie für alle Variablen den Gültigkeitsbereich an.
+//3a) Betrachten Sie den folgenden C++-Code und geben Sie für alle Variablen den Gültigkeitsbereich an.
 
 int main(){
     int v1 = 32; // v1 ab hierinnerhalb von main() gültig

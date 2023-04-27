@@ -1,5 +1,13 @@
+// Gruppe M. Husted, A. Malze, S. Kutscher
 #include <iostream>
-
+/* 2b)
+Schreiben Sie ein Programm, welches für alle Zahlen von 0 bis zu einer vom Nutzer eingegebenen
+Schranke für jede Zahl, die nur durch 3 teilbar ist bli, für jede Zahl, die durch nur 5 teilbar ist
+bla und für jede Zahl, die nur durch 7 teilbar ist blub ausgibt. Ist eine Zahl nur durch 3 und
+5 teilbar, soll blibla, ist sie nur durch 3 und 7 teilbar bliblub und ist sie nur durch 5 und 7
+teilbar blablub ausgegeben werden. Wenn die Zahl durch 3, 5 und 7 teilbar ist soll bliblablub
+ausgegeben werden. Die Ausgabe soll jeweils in einer eigenen Zeile passieren.
+*/
 using namespace std;
 
 int main() {
