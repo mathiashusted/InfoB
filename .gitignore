@@ -8,3 +8,6 @@
 
 # Include Makefile
 !Makefile
+
+# Zip archives
+*.zip
