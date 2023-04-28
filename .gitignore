@@ -1,3 +1,10 @@
-
 # Vscode
 .vscode/
+
+# Binaries
+*
+!/**/
+!*.*
+
+# Include Makefile
+!Makefile
