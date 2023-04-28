@@ -11,3 +11,6 @@
 
 # Zip archives
 *.zip
+
+# Github Actions
+.github/*
