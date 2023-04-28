@@ -1,0 +1,29 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+#     - name: Compile
+#       run: |
+#         for file in *.cpp; do
+#           g++ -std=c++14 -Wall -Wextra -Werror -pedantic "$file" -o "${file%.cpp}"
+#         done
+
+    - name: Check for warnings
+      run: |
+        for file in *.cpp; do
+          if g++ -std=c++14 -Wall -Wextra -Werror -pedantic "$file" -o "${file%.cpp}" 2>&1 | grep -q warning; then
+            echo "Warnings found in $file"
+            exit 1
+          fi
+        done
