@@ -1,5 +1,5 @@
 # Vscode
-.vscode/
+.vscode/*
 
 # Binaries
 *
@@ -11,3 +11,6 @@
 
 # Zip archives
 *.zip
+
+# Github Actions
+.github/*
