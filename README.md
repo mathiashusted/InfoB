@@ -1,7 +1,5 @@
 # InfoB
-This is a repository of my introduction class to imperative programming (C++)
-
-## The idea was made in february 2023 from 2 gentle mans :)
+This is a common repository of our introduction class to imperative programming (using C++). This idea was originally pitched in February 2023 by 2 gentlemen :)
 
 
 ## Example usage of Makefile
