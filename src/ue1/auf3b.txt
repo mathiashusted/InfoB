@@ -1,0 +1,22 @@
+READ INP # Liest Eingabe
+WRITE 14 # Schreibt Eingabe in Zelle 14
+READ INP # Liest nochmal die Eingabe
+WRITE 15 # Schreibt die 2. Eingabe in Zelle 15
+CJUMP 13 # Wenn Rechenwerk (Eingabe 2) == 0, springe zum Output
+READ 16  # Lade Zelle 16
+ADD 14   # Addiere Eingabe 1
+WRITE 16 # Schreibe das Ergebnis in Zelle 16
+READ 15  # Lade Zelle 15
+SUB 17   # Subtrahiere 1
+WRITE 15 # Schreibe das Ergebnis in Zelle 15
+JUMP 5   # Springe zurück zu Zelle 5
+OUTP 16  # Ausgabe aus Zelle 16
+0        # Enthält Eingabe 1
+0        # Enthält Eingabe 2
+0        # Enthält Ausgabe
+1        # Enthält die Zahl 1
+
+# Dieses Programm führt eine Multiplikation durch.
+# Die Zahl aus Zelle 14 wird [Zelle 15] Mal zum Output addiert
+# Bei jedem Durchlauf wird Zelle 15 um 1 dekrementiert, bis der
+# Zähler bei 0 ankommt.

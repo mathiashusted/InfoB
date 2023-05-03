@@ -1,0 +1,16 @@
+# Vscode
+.vscode/*
+
+# Binaries
+*
+!/**/
+!*.*
+
+# Include Makefile
+!Makefile
+
+# Zip archives
+*.zip
+
+# Github Actions
+.github/*
