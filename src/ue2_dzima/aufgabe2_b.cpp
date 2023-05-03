@@ -6,16 +6,15 @@ Code von gromdimon
 //**********************************************************************************************
 // AUFGABE 2b
 
-
 #include <iostream>
 using namespace std;
 
 int main() {
-  int num;   // Deklarieren
+  int num; // Deklarieren
   cout << "Geben Sie eine Einschraenkung: ";
-  cin >> num;   // Lesen Zahl
- 
-  for (int i = 0; i <= num; i++) {   // Gehen durch jeden Element
+  cin >> num; // Lesen Zahl
+
+  for (int i = 0; i <= num; i++) { // Gehen durch jeden Element
     // Ueberpruefen die Zahl auf teilbarkeit
     // Zuerst die complexeste und danach die einfachste
     if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0) {
@@ -34,6 +33,6 @@ int main() {
       cout << "blub" << endl;
     }
   }
-  
+
   return 0;
 }
