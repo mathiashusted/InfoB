@@ -6,30 +6,30 @@ Code von gromdimon
 //**********************************************************************************************
 // AUFGABE 1a
 
-
 #include <iostream>
 using namespace std;
 
 int main() {
-  int num, min_num, max_num;   // Deklarieren vars
-  
+  int num, min_num, max_num; // Deklarieren vars
+
   cout << "Geben Sie eine Folge von Zahlen ein (0 zum Beenden): ";
-  cin >> num;   // Lesen erste Zahl
+  cin >> num; // Lesen erste Zahl
   min_num = max_num = num;
-  
-  while (num != 0) {   // Fragen nach neue Zahl, bevor user mit 0 den Programm beendet
+
+  while (num !=
+         0) { // Fragen nach neue Zahl, bevor user mit 0 den Programm beendet
     if (num < min_num) {
-      min_num = num;   // Update min
+      min_num = num; // Update min
     }
     if (num > max_num) {
-      max_num = num;   // Update max
+      max_num = num; // Update max
     }
     cout << "Geben Sie eine weitere Zahl ein (0 zum Beenden): ";
-    cin >> num;   // Lesen neue Zahl
+    cin >> num; // Lesen neue Zahl
   }
-  
-  cout << "Minimum: " << min_num << endl;   // Ausgeben min
-  cout << "Maximum: " << max_num << endl;   // Ausgeben max
-  
+
+  cout << "Minimum: " << min_num << endl; // Ausgeben min
+  cout << "Maximum: " << max_num << endl; // Ausgeben max
+
   return 0;
 }
