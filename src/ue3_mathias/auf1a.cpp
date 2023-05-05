@@ -4,9 +4,12 @@
 
 using namespace std;
 
+
+// Vor: Keine
+// Erg: Der Character a im String Input wird durch den Character b ersetzt
 void replace(string &input, char a, char b) {
     for (size_t i = 0; i < (input.length()); i++) {
-        if (input[i] == a) input[i] = b;
+        if (input[i] == a) input[i] = b; // Buchstabe wird ersetzt
     }
 }
 
@@ -21,6 +24,6 @@ int main() {
     cout << "Durch was soll es ersetzt werden?: ";
     cin >> b;
     cout << "Der Eingabestring lautet: \"" << inp << "\" und wird jetzt verarbeitet...\n\n\n";
-    replace(inp, a, b);
+    replace(inp, a, b); // Funktion wird ausgeführt (da inp über einen Pointer verarbeitet wird, brauchen wir keine neue Variable)
     cout << "Der Ausgabestring lautet: \"" << inp << "\"\n";
 }

@@ -1,6 +1,7 @@
 // Gruppe M. Husted, A. Malze, S. Kutscher
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -17,7 +18,6 @@ struct Angestellter {
     Abteilung abteilung;
     int gehalt;
 };
-
 
 // Vor: Keine
 // Erg: Liefert neue Instanz von Angestellter
@@ -42,32 +42,29 @@ Angestellter newAngesteller() {
     else if (abt == "Verkauf")     mitarbeiter.abteilung = Abteilung::Verkauf;
     cout << "Bitte gebe das Gehalt des Angestellten ein: ";
     cin >> gehalt;
+    cout << "\n\n\n";
     return mitarbeiter;
+}
+
+// Vor: Keine
+// Erg: Alle Angestellten des Inputs, die in der Abteilung abt arbeiten, werden in einem neuen Vektor ausgegeben.
+vector<Angestellter> abteilung(vector<Angestellter> input, Abteilung abt) {
+    vector<Angestellter> output; // Ausgabevektor
+    for (size_t i = 0; i < (input.size()); i++) {
+        if (input[i].abteilung == abt) output.push_back(input[i]); // Mitarbeiter wird zum Ausgabevektor hinzugefügt
+    }
+    return output;
 }
 
 int main() {
     Angestellter markus = newAngesteller();
-    cout << "Der Name des Angestellten lautet: " << markus.name
-         << "\nDie Personalnummer des Angestellten lautet: " << markus.personalnummer
-         << "\nDie Abteilung des Angestellten lautet: ";
-    
-    switch (markus.abteilung) { // Müssen wieder dem enum die Ausgaben zuweisen
-        case (Abteilung::Buchhaltung):
-            cout << "Buchhaltung";
-            break;
-        case (Abteilung::Lager):
-            cout << "Lager";
-            break;
-        case (Abteilung::Verkauf):
-            cout << "Verkauf";
-            break;
-        case (Abteilung::Werkstatt):
-            cout << "Werkstatt";
-            break;
-        default:
-            cout << "Nicht gefunden";
-            break;
-    }
+    Angestellter sarah = newAngesteller();
+    Angestellter manfred = newAngesteller();
 
-    cout << "\nDas Gehalt des Angestellten lautet: " << markus.gehalt << endl;
+    vector<Angestellter> all = {markus, sarah, manfred}; // Beispiel zu Verwendung der Funktion.
+    cout << "Folgende Mitarbeiter arbeiten in der Werkstatt:\n";
+    vector<Angestellter> inWerkstatt = abteilung(all, Abteilung::Werkstatt);
+    for (size_t i = 0; i < inWerkstatt.size(); i++) {
+        cout << inWerkstatt[i].name << endl; // Alle Mitarbeiter der Werkstatt werden aufgelistet
+    }
 }
