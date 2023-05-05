@@ -1,5 +1,4 @@
 // Gruppe M. Husted, A. Malze, S. Kutscher
-// Gruppe M. Husted, A. Malze, S. Kutscher
 #include <iostream>
 #include <string>
 #include <vector>
