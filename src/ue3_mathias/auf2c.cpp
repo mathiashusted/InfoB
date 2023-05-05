@@ -1,9 +1,11 @@
 // Gruppe M. Husted, A. Malze, S. Kutscher
+// Gruppe M. Husted, A. Malze, S. Kutscher
 #include <iostream>
 #include <string>
 #include <vector>
 #include <utility>
 #include <algorithm>
+#include <fstream>
 
 using namespace std;
 
@@ -39,11 +41,14 @@ vector<pair<char, int>> histogram(string input) {
 }
 
 int main() {
-    string input;
-    cout << "Bitte gebe einen String ein: ";
-    cin >> input;
-
-    vector<pair<char, int>> input_hist = histogram(input);
+    ifstream moby ("moby.txt");
+    string line;
+    if (moby.is_open()) {
+        getline(moby, line);
+        moby.close();
+    }
+    
+    vector<pair<char, int>> input_hist = histogram(line);
     for(size_t i = 0; i < input_hist.size(); i++) {
         cout << input_hist[i].first << ", " << input_hist[i].second << endl;
     }
