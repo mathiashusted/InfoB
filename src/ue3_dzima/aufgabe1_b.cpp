@@ -10,10 +10,9 @@ Code von gromdimon
 #include <iostream>
 #include <string>
 
-void function(std::string &str) {
-  std::transform(str.begin(), str.end(), str.begin(), ::toupper);
-}
-
+// Vor: String
+// Erg: Keine
+// Eff: Ersetzt alle Kleinbuchstaben in String str durch Grossbuchstaben
 void toUpperCase(std::string &str) {
   for (size_t i = 0; i < str.length(); i++) {
     if (str[i] >= 'a' && str[i] <= 'z') {
@@ -22,6 +21,9 @@ void toUpperCase(std::string &str) {
   }
 }
 
+// Vor: Keine
+// Erg: Keine
+// Eff: Liest einen String ein, und gibt den String mit den ersetzen chars aus
 int main() {
   std::string str;
   std::cout << "Put here an example string: ";

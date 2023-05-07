@@ -24,6 +24,9 @@ struct angestellter {
   double gehalt;
 };
 
+// Vor: Keine
+// Erg: Angestellter
+// Eff: Liest einen Angestellten ein, und gibt ihn aus
 angestellter read_angestellter() {
   angestellter a;
 
@@ -44,17 +47,23 @@ angestellter read_angestellter() {
   return a;
 }
 
+// Vor: Vector von Angestellten, Abteilung
+// Erg: Vector von Angestellten
+// Eff: Gibt einen Vector von Angestellten zurück, die in der Abteilung arbeiten
 vector<angestellter> abteilung(const vector<angestellter> &angestelltenListe,
                                Abteilung abt) {
   vector<angestellter> abtAngestellte;
   for (const auto &angestellter : angestelltenListe) {
-    if (angestellter.abteilung == abt) {
+    if (angestellter.abteilung == abt) { // If the angestellter is in the abt
       abtAngestellte.push_back(angestellter);
     }
   }
   return abtAngestellte;
 }
 
+// Vor: Keine
+// Erg: Keine
+// Eff: Liest einen Angestellten ein, und gibt ihn aus
 int main() {
   vector<angestellter> angestelltenListe;
 

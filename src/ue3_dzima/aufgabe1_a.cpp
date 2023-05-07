@@ -10,6 +10,9 @@ Code von gromdimon
 #include <string>
 using namespace std;
 
+// Vor: String, char, char
+// Erg: Keine
+// Eff: Ersetzt alle Vorkommen von char a in String str durch char b
 void function(string &str, char a, char b) {
   for (size_t i = 0; i < str.length(); i++) {
     if (str[i] == a) {
@@ -18,6 +21,10 @@ void function(string &str, char a, char b) {
   }
 }
 
+// Vor: Keine
+// Erg: Keine
+// Eff: Liest einen String und zwei chars ein, und gibt den String mit den
+// ersetzen chars aus
 int main() {
   string str;
   char a, b;

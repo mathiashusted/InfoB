@@ -23,26 +23,36 @@ struct angestellter {
   double gehalt;
 };
 
+// Vor: Keine
+// Erg: Angestellter
+// Eff: Liest einen Angestellten ein, und gibt ihn aus
 angestellter read_angestellter() {
   angestellter a;
 
+  // Read the name
   std::cout << "Name: ";
   std::getline(std::cin, a.name);
 
+  // Read the personalnummer
   std::cout << "Personalnummer: ";
   std::cin >> a.personalnummer;
 
+  // Read the abteilung
   std::cout << "Abteilung (IT=0, Vertrieb=1, Personal=2, Buchhaltung=3): ";
   int abteilung;
   std::cin >> abteilung;
   a.abteilung = static_cast<Abteilung>(abteilung);
 
+  // Read the gehalt
   std::cout << "Gehalt: ";
   std::cin >> a.gehalt;
 
   return a;
 }
 
+// Vor: Keine
+// Erg: Keine
+// Eff: Liest einen Angestellten ein, und gibt ihn aus
 int main() {
   angestellter a = read_angestellter();
 

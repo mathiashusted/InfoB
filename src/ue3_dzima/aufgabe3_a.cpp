@@ -23,8 +23,12 @@ struct angestellter {
   double gehalt;
 };
 
+// Vor: Keine
+// Erg: Keine
+// Eff: Liest einen Angestellten ein, und gibt ihn aus
 int main() {
-  angestellter hans = {"Hans Müller", 12345, Abteilung::IT, 5000.0};
+  angestellter hans = {"Hans Müller", 12345, Abteilung::IT,
+                       5000.0}; // Initialisierung
 
   std::cout << "Name: " << hans.name << std::endl;
   std::cout << "Personalnummer: " << hans.personalnummer << std::endl;
