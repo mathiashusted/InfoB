@@ -1,5 +1,4 @@
 // Gruppe M. Husted, A. Malze, S. Kutscher
-// Gruppe M. Husted, A. Malze, S. Kutscher
 #include <iostream>
 #include <string>
 #include <vector>
@@ -9,7 +8,7 @@
 
 using namespace std;
 
-
+// Kommentare der Funktionen analog zu 2a)
 void deleteLetter(string &input, char x) {
     for (size_t i = 0; i < input.length();) {
         if (input[i] == x) input.erase(i,1);
@@ -41,14 +40,14 @@ vector<pair<char, int>> histogram(string input) {
 }
 
 int main() {
-    ifstream moby ("moby.txt");
+    ifstream moby ("moby.txt"); // moby wird geöffnet
     string line;
-    if (moby.is_open()) {
-        getline(moby, line);
-        moby.close();
+    if (moby.is_open()) { // Wird false, falls die Datei nicht vorher existiert
+        getline(moby, line); // Datei wird gelesen und dem String zugewiesen
+        moby.close(); // wird geschlossen
     }
     
-    vector<pair<char, int>> input_hist = histogram(line);
+    vector<pair<char, int>> input_hist = histogram(line); // String der Datei wird normal weiterverarbeitet
     for(size_t i = 0; i < input_hist.size(); i++) {
         cout << input_hist[i].first << ", " << input_hist[i].second << endl;
     }

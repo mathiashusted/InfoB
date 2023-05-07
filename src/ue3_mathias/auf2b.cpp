@@ -11,7 +11,7 @@ Der Syntax sieht wie folgt aus:
 #include <fstream>
 
 int main() {
-    std::ofstream file; // Wir legen eine Variable für die Datei fest. (ofstream = schreiben; Können auch mit ifstream die Datei lesen)
+    std::ofstream file; // Wir legen eine Variable für die Datei fest. (ofstream = schreiben; Können auch mit ifstream sowohl lesen als auch schreiben)
     file.open("datei.txt"); // Wir öffnen die Datei
     file << "Hello world\n"; // Wir schreiben in die Datei (ähnlich zu cout)
     file.close(); // Wir schließen die Datei wieder
