@@ -6,7 +6,8 @@ using namespace std;
 
 
 // Vor: Keine
-// Erg: Der Character a im String Input wird durch den Character b ersetzt
+// Erg: Keins
+// Eff: Der Character a im String Input wird durch den Character b ersetzt
 void replace(string &input, char a, char b) {
     for (size_t i = 0; i < (input.length()); i++) {
         if (input[i] == a) input[i] = b; // Buchstabe wird ersetzt

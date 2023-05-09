@@ -20,7 +20,8 @@ struct Angestellter {
 };
 
 // Vor: Keine
-// Erg: Liefert neue Instanz von Angestellter
+// Erg: Angestellter
+// Eff: Liefert neue Instanz von Angestellter
 Angestellter newAngesteller() {
     Angestellter mitarbeiter;
     string name;
@@ -47,7 +48,8 @@ Angestellter newAngesteller() {
 }
 
 // Vor: Keine
-// Erg: Alle Angestellten des Inputs, die in der Abteilung abt arbeiten, werden in einem neuen Vektor ausgegeben.
+// Erg: Vector vom Typ Angestellter
+// Eff: Alle Angestellten des Inputs, die in der Abteilung abt arbeiten, werden in einem neuen Vektor ausgegeben.
 vector<Angestellter> abteilung(vector<Angestellter> input, Abteilung abt) {
     vector<Angestellter> output; // Ausgabevektor
     for (size_t i = 0; i < (input.size()); i++) {

@@ -9,7 +9,8 @@ using namespace std;
 
 
 // Vor: Keine
-// Erg: Alle Vorkommen vom char x werden im String gelöscht
+// Erg: Keins
+// Eff: Alle Vorkommen vom char x werden im String gelöscht
 void deleteLetter(string &input, char x) {
     for (size_t i = 0; i < input.length();) {
         if (input[i] == x) input.erase(i,1);
@@ -32,7 +33,8 @@ pair<char,int> countPairs(string input, char search) {
 
 
 // Vor: Keine
-// Erg: Ein Vector von Pairs wird ausgegeben, der das Histogramm enthält
+// Erg: Ein Vector von Pairs
+// Eff: Ein Vector von Pairs wird ausgegeben, der das Histogramm enthält
 // Idee: Aus dem String input werden nach und nach alle chars entfernt, die bereits gezählt wurden. Wenn der String leer ist,
 // haben wir den String fertig verarbeitet, und können das Histogramm ausgeben.
 vector<pair<char, int>> histogram(string input) {

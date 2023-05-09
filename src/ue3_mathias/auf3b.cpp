@@ -20,7 +20,8 @@ struct Angestellter {
 
 
 // Vor: Keine
-// Erg: Liefert neue Instanz von Angestellter
+// Erg: Angestellter
+// Eff: Liefert neue Instanz von Angestellter
 Angestellter newAngesteller() {
     Angestellter mitarbeiter;
     string name;
