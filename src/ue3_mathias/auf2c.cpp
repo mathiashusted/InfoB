@@ -42,12 +42,12 @@ vector<pair<char, int>> histogram(string input) {
 int main() {
     ifstream moby ("moby.txt"); // moby wird geöffnet
     string line;
-    if (moby.is_open()) { // Wird false, falls die Datei nicht vorher existiert
-        getline(moby, line); // Datei wird gelesen und dem String zugewiesen
-        moby.close(); // wird geschlossen
+    string contents;
+    while (getline(moby, line)) { // Wird false, falls die Datei nicht vorher existiert
+        contents += line; // Datei wird gelesen und dem String zugewiesen
     }
-    
-    vector<pair<char, int>> input_hist = histogram(line); // String der Datei wird normal weiterverarbeitet
+    moby.close(); // wird geschlossen
+    vector<pair<char, int>> input_hist = histogram(contents); // String der Datei wird normal weiterverarbeitet
     for(size_t i = 0; i < input_hist.size(); i++) {
         cout << input_hist[i].first << ", " << input_hist[i].second << endl;
     }
