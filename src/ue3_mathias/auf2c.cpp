@@ -17,7 +17,7 @@ void deleteLetter(string &input, char x) {
 }
 
 
-pair<char,int> countPairs(string &input, char search) {
+pair<char,int> countPairs(string input, char search) {
     int count = 0;
     for (size_t i = 0; i < input.length(); i++) {
         if (input[i] == search) {

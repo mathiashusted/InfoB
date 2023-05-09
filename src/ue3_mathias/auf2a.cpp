@@ -20,7 +20,7 @@ void deleteLetter(string &input, char x) {
 
 // Vor: Keine
 // Erg: Ein Pair wird ausgegeben, das an erster Stelle den char search enthält, und an zweiter Stelle die Anzahl der Vorkommen von search im String input
-pair<char,int> countPairs(string &input, char search) {
+pair<char,int> countPairs(string input, char search) {
     int count = 0; // Anzahl der Vorkommen - muss außerhalb der Schleife deklariert werden, um mit ausgegeben werden zu können
     for (size_t i = 0; i < input.length(); i++) {
         if (input[i] == search) {
