@@ -11,5 +11,7 @@ Ist sie immer noch nicht sortiert, so nimmt man wieder zwei zufälligen Elemente
 So geht es immer weiter, bis die Liste durch Zufall richtig sortiert wurde. Die Laufzeit kann hierbei beliebig lang oder
 kurz sein. Im schlechtesten Fall ist die Laufzeit unendlich, und im besten Fall ist sie n.
 
+Quelle: https://sortvisualizer.com/bogosort/
+
 
 */
