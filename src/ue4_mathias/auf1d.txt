@@ -1,0 +1,25 @@
+Gruppe M. Husted, A. Malze, S. Kutscher
+
+Gegeben ist folgende Datei:
+
+--+--+-----+
+| d1 | 30  |
+| d2 | 10  |
+| d3 | 25  |
+| d4 | 100 |
+| d5 | 5   |
+| d6 | 16  |
++----+-----+
+
+Wir wenden den Algorithmus darauf an:
+
+1. Suchen die Datei mit dem minimalen Wert: d5 = 5
+2. Fügen d5 in unsere neue Liste ein:
+--+--+-----+
+| d5 | 5   |
++----+-----+
+3. Suchen wieder die Datei mit dem minimalen Wert
+
+...
+
+13. 

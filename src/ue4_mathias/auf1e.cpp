@@ -1,8 +1,8 @@
-// Gruppe M. Husted, A. Malze, S. Kutscher
 #include <iostream>
 #include <vector>
 
 
+// Bubblesort aus Aufgabe 3:
 // Vor: Keine
 // Erg: Sortierter Vektor nach bubbleSort
 // Eff: Sortiert den eingegebenen Vektor nach bubbleSort,
@@ -35,10 +35,12 @@ std::vector<int> bubbleSort(std::vector<int> input, bool aufAb) {
     return output;
 }
 
+
 int main() {
-    std::vector<int> test = {1,2,3,5,4,1,5,7,1,6,0,6,9,7,8,44};
-    std::vector<int> testSorted = bubbleSort(test,false);
-    for (size_t i = 0; i < testSorted.size(); i++) {
-        std::cout << "Das " << i << "-te Element lautet: " << testSorted[i] << std::endl;
+    std::vector<int> test = {30,10,25,100,5,16}; // Sei test die Datei als Vektor dargestellt mit {d1, d2, ..., dn}
+    std::vector<int> testOptimized = bubbleSort(test, true); // Ist test aufsteigend sortiert, ist er optimiert
+    std::cout << "Datei | Größe" << std::endl;
+    for (size_t i = 0; i < testOptimized.size(); i++) {
+        std::cout << "d" << (i+1) << " | " << testOptimized[i] << std::endl;
     }
 }

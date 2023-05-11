@@ -1,3 +1,4 @@
+// Gruppe M. Husted, A. Malze, S. Kutscher
 /*
 Bubblesort iteriert durch eine Liste und nimmt dabei immer zwei nebeneinanderstehende Elemente.
 {1, 6, 2, 5, 9, 1} -> verglichen werden erst 1, 6 -> 6, 2 -> 2, 5 -> 5, 9 -> 9, 1

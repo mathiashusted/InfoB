@@ -1,0 +1,4 @@
+Gruppe M. Husted, A. Malze, S. Kutscher
+
+Ein gieriger Ansatz wäre, die Liste aufsteigend nach Größe zu sortieren. Man könnte bspw. mit Bubblesort (siehe 1e) die Elemente
+sortieren. So wäre die Zugriffszeit auf alle Elemente optimal.
