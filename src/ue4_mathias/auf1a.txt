@@ -1,0 +1,5 @@
+Gruppe M. Husted, A. Malze, S. Kutscher
+
+Sei eine Liste aus Dateien gegeben, die jeweils aus ihrer ID sowie ihrer Größe bestehen. Der Zugriff auf die Dateien erfolgt
+sequenziell, und die Zugriffszeit auf ein beliebiges Element ist die Summe der Größen seiner Vorgänger. Die
+Wahrscheinlichkeit eines Zugriffes ist für alle Elemente gleich groß.

@@ -51,7 +51,7 @@ vector<pair<char, int>> histogram(string input) {
 int main() {
     string input;
     cout << "Bitte gebe einen String ein: ";
-    cin >> input;
+    getline(cin, input);
 
     vector<pair<char, int>> input_hist = histogram(input); // Der Vektor wird anhand der Eingabe erstellt
     for(size_t i = 0; i < input_hist.size(); i++) {
