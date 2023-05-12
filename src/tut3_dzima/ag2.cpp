@@ -23,16 +23,18 @@ using namespace std;
 // bis zum Ende der Straße schaffen, sondern unter Umständen mehrere Male
 // unterwegs tanken müssen. Als umweltbewusste Bürgerinnen und Bürger sind wir
 // natürlich daran interessiert, so wenig wie möglich Tankstellen anzufahren, an
-// denen wir tanken müssen. a) Formuliert das Tankstellenproblem als
-// algorithmisches Problem. b) Entwickelt einen gierigen Algorithmus zur Lösung
-// des Tankstellenproblems. Gebt den Algorithmus verbal oder in Pseudocode an.
-// Nennt die Greedy-Strategie, die dem Algorithmus zugrunde liegt. c) Wendet
-// euren Algorithmus auf die folgende Eingabe an: l1 = 4, l2 = 5, l3 = 13, l4 =
-// 19, l5 = 28, l6 = 30, l7 = 34, l8 = 36, l8 = 39, L = 42, M = 13. d) Die 4.
-// Tankstelle aus c) muss wegen Bauarbeiten geschlossen werden. Wie verhält sich
-// Ihr Algorithmus nun? e) Begründet mithilfe des Austauscharguments, warum euer
-// Algorithmus eine optimale Lösung findet. f) (Zusatzaufgabe) Implementiert den
-// Algorithmus in C++
+// denen wir tanken müssen. 
+// a) Formuliert das Tankstellenproblem als algorithmisches Problem. 
+// b) Entwickelt einen gierigen Algorithmus zur Lösung des Tankstellenproblems. 
+// Gebt den Algorithmus verbal oder in Pseudocode an. Nennt die Greedy-Strategie, 
+// die dem Algorithmus zugrunde liegt. 
+// c) Wendet euren Algorithmus auf die folgende Eingabe an: l1 = 4, l2 = 5, l3 = 13, 
+// l4 = 19, l5 = 28, l6 = 30, l7 = 34, l8 = 36, l8 = 39, L = 42, M = 13. 
+// d) Die 4. Tankstelle aus c) muss wegen Bauarbeiten geschlossen werden. Wie verhält 
+// sich Ihr Algorithmus nun? 
+// e) Begründet mithilfe des Austauscharguments, warum euer Algorithmus eine optimale 
+// Lösung findet. 
+// f) (Zusatzaufgabe) Implementiert den Algorithmus in C++
 
 // a) Das Tankstellenproblem ist ein Optimierungsproblem, bei dem wir die Anzahl
 // der Tankstellen minimieren wollen, die wir anfahren müssen, um mit unserem
