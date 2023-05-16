@@ -7,7 +7,3 @@ struct Item {
     int weight;
     int value;
 };
-
-int main() {
-
-}
