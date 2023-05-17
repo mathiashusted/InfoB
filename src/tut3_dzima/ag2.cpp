@@ -101,6 +101,10 @@ int calculate_min_stops(int L, int M, vector<int> li) {
                            // zur naechsten Tankstelle kommen
       pos = li[i - 1]; // Falls nicht, fahre zur letzten Tankstelle zurueck und
                        // tanke voll
+      if (li[i] - pos > M) { // Falls wir mit der aktuellen Tankfuellung nicht
+                           // bis zum Ende der Straße kommen, breche ab
+          return -1;
+        }
       count++;
     }
     i++;
@@ -112,16 +116,16 @@ int main() {
   int L = 42; // Länge der Straße
   int M = 13; // maximale Reichweite des Autos
   vector<int> li = {
-      4,  5,  13, 19, 28,
+      4,  5,  13, 28,
       30, 34, 36, 39}; // Entfernungen der Tankstellen zum Startpunkt
-  cout << "L = " << L << endl;
-  cin >> L;
-  cout << "M = " << M << endl;
-  cin >> M;
-  cout << "(Achting! Gibt's nur 9 Tankstellen!!) li = ";
-  for (int i = 0; i < static_cast<int>(li.size()); i++) {
-    cout << li[i] << " ";
-  }
+//   cout << "L = " << L << endl;
+//   cin >> L;
+//   cout << "M = " << M << endl;
+//   cin >> M;
+//   cout << "(Achting! Gibt's nur 9 Tankstellen!!) li = ";
+//   for (int i = 0; i < static_cast<int>(li.size()); i++) {
+//     cout << li[i] << " ";
+//   }
 
   int count = calculate_min_stops(L, M, li);
   if (count == -1) {
