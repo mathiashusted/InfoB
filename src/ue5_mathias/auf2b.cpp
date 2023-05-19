@@ -3,7 +3,7 @@ Gruppe M. Husted, A. Malze, S. Kutscher
 
 Bestimme die Anzahl der Runden, die benötigt werden.
 
-Zuerst wird die While-Schleife aufgerufen. Diese wird sqrt(n) Mal abgerufen, da die Liste bei jedem Durchlauf halbiert wird.
+Zuerst wird die While-Schleife aufgerufen. Diese wird log2(n) Mal abgerufen, da die Liste bei jedem Durchlauf halbiert wird.
 Das liegt daran, dass alle Elemente mit ihrem Nachbarelement verglichen werden, und eines davon wird gelöscht.
 
 Innerhalb der While-Schleife wird wiederum eine For-Schleife eröffnet, die wieder alle n Elemente innerhalb dieser Liste überprüft.
@@ -17,11 +17,12 @@ nach hinten verschoben werden müssen)
 Die Anzahl der Runden, die benötigt werden beträgt also im schlechtesten Fall
 n = vec.size()
 T(0) = 0 (While beginnt nicht)
-T(n) = sqrt(n) * n * n
+T(n) = log_2(n) * n * n = log_2(n) * n^2
 
 
 
-Unten ist eine Funktion, die die Anzahl der Runden für ein beliebiges Array liefert.
+Unten ist eine Funktion implementiert, die die Anzahl der Runden für ein beliebiges Array liefert,
+und dabei darstellt, was gerade in der Schleife gemacht wird.
 */
 
 #include <iostream>
@@ -51,6 +52,11 @@ int turnierMin(std::vector<int> & input) {
     int count = 0;
     std::vector<int> candidates = input;
     while (candidates.size() > 1) {
+        std::cout << "{";
+        for (size_t i = 0; i < candidates.size(); i++) {
+            std::cout << candidates[i] << ", ";
+        }
+        std::cout << "}\n";
         std::cout << "Current size: " << candidates.size() << std::endl;
         count++;
         for (size_t i = 0; i < (candidates.size() - 1); i++) {

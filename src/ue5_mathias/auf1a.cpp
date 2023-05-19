@@ -10,121 +10,18 @@
 #include <vector>
 
 
-/*
-*******************************
-Insertionsort
-*/
+void ultraSortHelp(std::vector<int> & elems, unsigned begin, unsigned end) {
+	if (begin <= end) return;
 
-
-void insertionsort(std::vector<int>& l) {
-    int current, j;
-    for (size_t i = 1; i < l.size(); i++) {
-        current = l[i];
-        j = i-1;
-
-        while (j >= 0 && current < l[j]) {
-            l[j+1] = l[j];
-            j -= 1;
-        }
-        
-        l[j+1] = current;
-    }
+	
 }
 
-
-
-/*
-*******************************
-Mergesort (wie in der VL)
-*/
-
-void merge(std::vector<int>& elems, unsigned begin, unsigned mid, unsigned end){
-    std::vector<int> firstHalf = hf::copy(elems, begin, mid);
-    std::vector<int> secondHalf = hf::copy(elems, mid, end);
-    unsigned i = 0;
-    unsigned j = 0;
-    while(begin + i + j < end){
-        if ( j >= secondHalf.size() || ((i<firstHalf.size()) && (firstHalf[i]<secondHalf[j]))){
-            elems[begin+i+j] = firstHalf[i];
-            i++;
-        }else{
-            elems[begin+i+j] = secondHalf[j];
-            j++;
-        }
-    }
+void ultraSort(std::vector<int> elems) {
+	ultraSortHelp(elems, 0, elems.size());
 }
 
-void mergeSortHelp(std::vector<int>& elems, unsigned start, unsigned end){
-    if(start==end||start==end-1){
-        return;
-    }
-    unsigned mid = (start+end)/2;
-    mergeSortHelp(elems, start, mid);
-    mergeSortHelp(elems, mid, end);
-    merge(elems, start, mid, end);
-}
+void ultraSortParam(std::vector<int> elems, float fraction);
 
-void mergeSort(std::vector<int>& elems){
-    mergeSortHelp(elems, 0, elems.size());
-}
-
-/*
-*******************************
-Ultrasort
-*/
-
-std::vector<int> mergeUltra(std::vector<int>& l, std::vector<int>& r) {
-    std::vector<int> output;
-    unsigned i = 0, j = 0; // Zwei Zählervariablen für jede Liste
-
-    while (i < l.size() && j < r.size()) {
-        std::cout << "Status i: " << l[i] << "\nStatus j: " << r[j] << "\n\n";
-        if (l[i] < r[j]) {
-            output.push_back(l[i]);
-            i++;
-        }
-        else if (l[i] >= r[j]) {
-            output.push_back(r[j]);
-            j++;
-        }
-        else {
-            if (i < l.size()) {
-                output.push_back(l[i]);
-                i++;
-            }
-            if (j < r.size()) {
-                output.push_back(r[j]);
-                j++;
-            }
-        }
-    }
-    std::cout << "\nFertig iteriert! Das Ergebnis lautet:\n";
-    for (size_t i = 0; i < output.size(); i++) {
-        std::cout << output[i] << std::endl;
-    }
-    return output;
-}
-
-void ultraSort(std::vector<int>& elems) {
-    std::cout << "Rekursiver Aufruf UltraSort\n";
-    for (size_t i = 0; i < elems.size(); i++) {
-        std::cout << elems[i] << std::endl;
-    }
-
-    if (elems.size() <= 1) return;
-    unsigned third = elems.size() / 3;
-    std::vector<int> l, r;
-    l = hf::copy(elems, 0, third);
-    r = hf::copy(elems, third + 1, elems.size());
-    ultraSort(elems);
-    ultraSort(elems);
-}
-
-void ultraSortParam(std::vector<int>& elems, float fraction) {
-    if (elems.empty() && fraction) {
-
-    }
-}
 
 /// Main ----------------------------------------------------------------
 // Auch die Main muss noch angepasst werden.
@@ -134,20 +31,11 @@ void ultraSortParam(std::vector<int>& elems, float fraction) {
 // Passen Sie die main dahingehend an, dass auch die parametrisierte Variante
 // von ultraSort getestet wird
 
-void test() {
-    std::vector<int> array = hf::zufalls_array(10);
-    ultraSort(array);
-    std::cout << "\n\nOutput:\n";
-    for (size_t i = 0; i < array.size(); i++) {
-        std::cout << array[i] << std::endl;
-    }
-}
-
 int main() {
 	srand(time(NULL)); // Zufallsgenerator starten. Technische Notwendigkeit.
-	//double time;
-	//std::vector<int> array;
-	/*for (int size = 10000; size <= 10000000; size *= 10) {
+	double time;
+	std::vector<int> array;
+	for (int size = 10000; size <= 10000000; size *= 10) {
 		std::cout << "   " << size << " Elemente:" << std::endl;
 
 		// Zufälliges Array testen:
@@ -176,9 +64,6 @@ int main() {
 		time = clock() - time; // Endzeit
 
 		std::cout << "      Absteigend: " << (time/CLOCKS_PER_SEC) << " Sekunden" << std::endl;
-	}*/
-    test();
+	}
 	return 0;
 }
-
-
