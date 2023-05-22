@@ -6,7 +6,7 @@ Code von gromdimon
 //**********************************************************************************************
 // AUFGABE 1a
 
-#include "hilfsfunktionen.cpp"
+#include "hilfsfunktionen.hpp"
 #include <iostream>
 #include <vector>
 
