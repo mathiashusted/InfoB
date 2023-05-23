@@ -3,18 +3,18 @@ Gruppe M. Husted, A. Malze, S. Kutscher
 
 Bestimme die Anzahl der Runden, die benötigt werden.
 
-Zuerst wird die While-Schleife aufgerufen. Diese wird log2(n) Mal abgerufen, da die Liste bei jedem Durchlauf halbiert wird.
+Zuerst wird die While-Schleife aufgerufen. Diese wird log_2(n) Mal abgerufen, da die Liste bei jedem Durchlauf halbiert wird.
 Das liegt daran, dass alle Elemente mit ihrem Nachbarelement verglichen werden, und eines davon wird gelöscht.
 
 Innerhalb der While-Schleife wird wiederum eine For-Schleife eröffnet, die wieder alle n Elemente innerhalb dieser Liste überprüft.
 Folglich muss dies auch n Mal passieren.
 
 
-Innerhalb der For-Schleife wird das nicht benötigte Element entfernt. Das wird wieder über eine For-Schleife (removeElem) geregelt, die
-alle Elemente nacheinander nach hinten schiebt. Im schlechtesten Fall passiert das auch n Mal. (wenn alle Variablen ganz bis
-nach hinten verschoben werden müssen)
+Innerhalb der For-Schleife wird das nicht benötigte Element entfernt. Das wird wieder über eine For-Schleife (innerhalb removeElem) geregelt, die
+alle Elemente nacheinander nach hinten schiebt. Im schlechtesten Fall passiert das auch n Mal (wenn alle Folgeelemente nach vorne
+gerückt werden müssen, ergo der zu löschende Index ganz vorne stand).
 
-Die Anzahl der Runden, die benötigt werden beträgt also im schlechtesten Fall
+Da wir prinzipiell den schlechtesten Fall betrachten, beträgt die Laufzeit also:
 n = vec.size()
 T(0) = 0 (While beginnt nicht)
 T(n) = log_2(n) * n * n = log_2(n) * n^2
@@ -46,8 +46,8 @@ void removeElem(std::vector<int> & input, size_t index, int & count) {
 
 // Vor: Keiner
 // Erg: Gibt minimales Element zurück.
-// Eff: Zeigt am Ende die Laufzeit an.
-int turnierMin(std::vector<int> & input) {
+// Eff: Zeigt am Ende die Laufzeit an und stellt mit Hilfe von ASCII dar, was die Funktion berechnet.
+int turnierMinTest(std::vector<int> & input) {
     if (input.empty()) return 0;
     int count = 0;
     std::vector<int> candidates = input;
@@ -78,5 +78,5 @@ int turnierMin(std::vector<int> & input) {
 int main() {
     std::vector<int> array = {6,23,98,55,22, (-128), 28, 46762, (-2785), (-58274), 28, 7276, 7, 2, 2, 3};
     std::cout << "Anzahl der Elemente im Array: " << array.size() << std::endl;
-    std::cout << turnierMin(array) << std::endl;
+    std::cout << turnierMinTest(array) << std::endl;
 }
