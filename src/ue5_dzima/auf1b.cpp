@@ -7,6 +7,7 @@ Code von gromdimon
 // AUFGABE 1a
 
 #include <iostream>
+#include <limits>
 #include <vector>
 
 namespace hf {
@@ -77,7 +78,7 @@ std::vector<int> zufalls_array(unsigned size) {
 } // namespace hf
 
 // Voraussetzung: elementen vector, start und end
-// Effekt: Teil des Vektors von start zum end wird sortiert
+// Effekt: Teil des Vektors von start bis end wird sortiert
 void insertSort(std::vector<int> &elems, int start, int end) {
   for (int i = start + 1; i < end; i++) {
     int j = i;
@@ -108,9 +109,10 @@ void merge(std::vector<int> &elems, unsigned begin, unsigned mid,
   }
 }
 
-// Vorraussetzung: elementen vector, begin und end
-// Effekt: elementen vector wird sortiert
-void ultraSortHelp(std::vector<int> &elems, int begin, int end) {
+// Voraussetzung: elementen vector, begin und end, splitRatio - split ratio in
+// the range of 1-99 Effekt: elementen vector wird sortiert
+void ultraSortHelp(std::vector<int> &elems, int begin, int end,
+                   int splitRatio) {
   // Wenn der zu sortierende Teil des Vektors kleiner als 2 ist, ist er bereits
   // sortiert
   if (end - begin < 2) {
@@ -122,30 +124,37 @@ void ultraSortHelp(std::vector<int> &elems, int begin, int end) {
     }
     return;
   }
-  int mid = (end - begin) / 3;
+  int mid = begin + (end - begin) * splitRatio / 100;
   // Rekursiver Aufruf von insertSort
-  insertSort(elems, begin, begin + mid);
+  insertSort(elems, begin, mid);
   // Rekursiver Aufruf von ultraSort
-  ultraSortHelp(elems, begin + mid, end);
+  ultraSortHelp(elems, begin + mid, end, splitRatio);
   // Final merge
   merge(elems, begin, begin + mid, end);
 }
 
-// Voraussetzung: elementen vector
-// Effekt: elementen vector wird sortiert
-void ultraSort(std::vector<int> &elems) {
-  // Ruft Hilfsfunktion auf
-  ultraSortHelp(elems, 0, elems.size());
+// Voraussetzung: elementen vector, startSplitRatio, endSplitRatio, stepSize
+// Effekt: Find the optimal split ratio based on execution time
+int findOptimalSplitRatio(std::vector<int> &elems, int startSplitRatio,
+                          int endSplitRatio, int stepSize) {
+  int optimalSplitRatio = startSplitRatio;
+  double optimalTime = std::numeric_limits<double>::max();
+  for (int splitRatio = startSplitRatio; splitRatio <= endSplitRatio;
+       splitRatio += stepSize) {
+    std::vector<int> copy =
+        elems;             // Create a copy of the vector for each split ratio
+    double time = clock(); // Startzeit
+    ultraSortHelp(copy, 0, copy.size(), splitRatio);
+    time = clock() - time; // Endzeit
+    if (time < optimalTime) {
+      optimalTime = time;
+      optimalSplitRatio = splitRatio;
+    }
+  }
+  return optimalSplitRatio;
 }
 
 /// Main ----------------------------------------------------------------
-// Auch die Main muss noch angepasst werden.
-// Denken Sie nicht nur an das Zeitmessen sondern auch daran, zu überprüfen
-// ob ihr Algorithmus wirklich das tut, was er tun soll - sortieren!
-//
-// Passen Sie die main dahingehend an, dass auch die parametrisierte Variante
-// von ultraSort getestet wird
-
 int main() {
   srand(time(NULL)); // Zufallsgenerator starten. Technische Notwendigkeit.
   double time;
@@ -156,46 +165,41 @@ int main() {
     // Zufälliges Array testen:
     array = hf::zufalls_array(size);
 
+    // Find the optimal split ratio for the current array size
+    int optimalSplitRatio = findOptimalSplitRatio(array, 1, 99, 1);
+
     time = clock(); // Startzeit
-    ultraSort(array);
+    ultraSortHelp(array, 0, array.size(), optimalSplitRatio);
     time = clock() - time; // Endzeit
 
-    std::cout << "      Zufällig: " << (time / CLOCKS_PER_SEC) << " Sekunden"
-              << std::endl;
+    std::cout << "      Zufällig (Split Ratio: " << optimalSplitRatio
+              << "): " << (time / CLOCKS_PER_SEC) << " Sekunden" << std::endl;
 
     // Aufsteigend sortiertes Array testen:
     array = hf::sortiertes_array(size, true);
 
+    // Find the optimal split ratio for the current array size
+    optimalSplitRatio = findOptimalSplitRatio(array, 1, 99, 1);
+
     time = clock(); // Startzeit
-    ultraSort(array);
+    ultraSortHelp(array, 0, array.size(), optimalSplitRatio);
     time = clock() - time; // Endzeit
 
-    std::cout << "      Aufsteigend: " << (time / CLOCKS_PER_SEC) << " Sekunden"
-              << std::endl;
+    std::cout << "      Aufsteigend (Split Ratio: " << optimalSplitRatio
+              << "): " << (time / CLOCKS_PER_SEC) << " Sekunden" << std::endl;
 
     // Absteigend sortiertes Array testen:
     array = hf::sortiertes_array(size, false);
 
+    // Find the optimal split ratio for the current array size
+    optimalSplitRatio = findOptimalSplitRatio(array, 1, 99, 1);
+
     time = clock(); // Startzeit
-    ultraSort(array);
+    ultraSortHelp(array, 0, array.size(), optimalSplitRatio);
     time = clock() - time; // Endzeit
 
-    std::cout << "      Absteigend: " << (time / CLOCKS_PER_SEC) << " Sekunden"
-              << std::endl;
+    std::cout << "      Absteigend (Split Ratio: " << optimalSplitRatio
+              << "): " << (time / CLOCKS_PER_SEC) << " Sekunden" << std::endl;
   }
   return 0;
 }
-
-// Output in terminal:
-//
-//    10000 Elemente:
-//       Zufällig: 0.077949 Sekunden
-//       Aufsteigend: 0.000488 Sekunden
-//       Absteigend: 0.098145 Sekunden
-//    100000 Elemente:
-//       Zufällig: 4.85988 Sekunden
-//       Aufsteigend: 0.005054 Sekunden
-//       Absteigend: 9.69859 Sekunden
-//    1000000 Elemente:
-//       Zufällig: 510.348 Sekunden
-//       Aufsteigend: 0.048899 Sekunden
