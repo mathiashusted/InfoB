@@ -1,0 +1,32 @@
+Gruppe M. Husted, A. Malze, S. Kutscher
+
+Analyse Turniermodus:
+
+Für die beiden Schleifen in der Funktion turnierMin gilt folgendes
+
+Anzahl Vergleiche:  1 in while (candidates.size())
+                    2 in for (candidates.size(), If-Block innerhalb)
+Anzahl Operationen: 0 in while
+                    2 in for (i++, removeElem)
+
+while (candidates.size() > 1) {
+    for (size_t i = 0; i < (candidates.size() - 1); i++) {
+        if (candidates[i] < candidates[i+1]) removeElem(candidates, (i+1));
+        else removeElem(candidates, i);
+    }
+}
+
+
+Nun müssen wir auch die Schleife in removeElem betrachten. Es gilt:
+
+Anzahl Vergleiche:  1 (i < input.size())
+Anzahl Operationen: 2 (i++, input[i] = input[i+1])
+
+for (size_t i = index; i < input.size()-1; i++)
+    input[i] = input[i+1];
+
+
+Wir haben also eine Gesamtmenge an Vergleiche/Operationen von 8. Wir wissen aus 2b, was unsere Anzahl an benötigten Runden beträgt.
+
+
+T(n) = log_2(n)* 5*n * 3*n = log_2(n)* 15*n^2 ∈ O(log_2(n) * n^2)
