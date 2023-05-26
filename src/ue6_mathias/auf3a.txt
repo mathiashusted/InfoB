@@ -1,0 +1,32 @@
+Gruppe M. Husted, A. Malze, S. Kutscher
+
+Betrachten Sie das folgende Algorithmische Problem:
+Gegeben: Eine Folge X von Zahlen aus Z.
+Gesucht: Alle Tripel a, b, c ∈ X von Zahlen mit mit a + b = c.
+(a) Beschreiben verbal oder mit Pseudocode einen naiven Algorithmus für dieses Problem. Was ist
+die Laufzeit Ihres Algorithmus?
+
+Ein naiver Algorithmus wäre, für jedes c ∈ X alle Paare a, b ∈ X zu überprüfen.
+Dabei würde eine Schleife laufen, die für jedes c für jedes a jedes b prüfen würde,
+ob die Summe c ergibt.
+
+procedure triplets(X):
+    pair ret
+    for (c in X):
+        for (a\{c} in X):
+            for (b\{b, c} in X):
+                if (a + b == c):
+                    ret += (a,b)
+    return ret
+
+Die Laufzeit hierzu würde betragen:
+
+T(0) = 1 (ein Vergleich wird gemacht)
+
+T(n) = n*(n-1)*(n-2)
+
+Es gibt in der äußeren Schleife n Elemente, die überprüft werden müssen.
+In der zweiten Schleife gibt es wiederum eins weniger, da c ausgeschlossen werden kann.
+In der dritten Schleife gibt es noch eins weniger, da nun sowohl c als auch a ausgeschlossen sind.
+
+
