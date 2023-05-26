@@ -203,3 +203,14 @@ int main() {
   }
   return 0;
 }
+
+// Output in terminal:
+//
+//    10000 Elemente:
+//       Zufällig (Split Ratio: 1): 0.001105 Sekunden
+//       Aufsteigend (Split Ratio: 41): 0.000247 Sekunden
+//       Absteigend (Split Ratio: 1): 0.001187 Sekunden
+//    100000 Elemente:
+//      Zufällig (Split Ratio: 1): 0.022625 Sekunden
+//      Aufsteigend (Split Ratio: 39): 0.002539 Sekunden
+//      Absteigend (Split Ratio: 1): 0.035921 Sekunden

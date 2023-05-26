@@ -199,3 +199,7 @@ int main() {
 //    1000000 Elemente:
 //       Zufällig: 510.348 Sekunden
 //       Aufsteigend: 0.048899 Sekunden
+//       Absteigend: 1046.18 Sekunden
+//    10000000 Elemente:
+//  	 Zufällig: 59382.3 Sekunden
+//	     Aufsteigend: 0.524578 Sekunden
