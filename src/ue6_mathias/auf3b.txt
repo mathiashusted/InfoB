@@ -1,0 +1,11 @@
+Gruppe M. Husted, A. Malze, S. Kutscher
+
+Betrachten Sie das folgende Algorithmische Problem:
+Gegeben: Eine Folge X von Zahlen aus Z.
+Gesucht: Alle Tripel a, b, c ∈ X von Zahlen mit mit a + b = c.
+
+Beschreiben verbal oder im Pseudocode Sie einen Algorithmus mit einer Laufzeit von Θ(n^2) für
+das Problem. Beweisen Sie, dass Ihr Algorithmus wirklich diese Laufzeit hat.
+
+
+Ein alternativer Algorithmus wäre es, alle c's durchzuiterieren, und dann ähnlich wie bei Pairsum vorgehen.

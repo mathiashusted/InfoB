@@ -11,10 +11,10 @@ Dabei würde eine Schleife laufen, die für jedes c für jedes a jedes b prüfen
 ob die Summe c ergibt.
 
 procedure triplets(X):
-    pair ret
+    pair ret[]
     for (c in X):
-        for (a\{c} in X):
-            for (b\{b, c} in X):
+        for (a in X):
+            for (b in X):
                 if (a + b == c):
                     ret += (a,b)
     return ret
@@ -23,10 +23,7 @@ Die Laufzeit hierzu würde betragen:
 
 T(0) = 1 (ein Vergleich wird gemacht)
 
-T(n) = n*(n-1)*(n-2)
+T(n) = n*n*n=n^3
 
-Es gibt in der äußeren Schleife n Elemente, die überprüft werden müssen.
-In der zweiten Schleife gibt es wiederum eins weniger, da c ausgeschlossen werden kann.
-In der dritten Schleife gibt es noch eins weniger, da nun sowohl c als auch a ausgeschlossen sind.
-
+Es gibt 3 verschachtelte Schleifen, die jeweils X durchlaufen, also n^3.
 
