@@ -9,3 +9,24 @@ das Problem. Beweisen Sie, dass Ihr Algorithmus wirklich diese Laufzeit hat.
 
 
 Ein alternativer Algorithmus wäre es, alle c's durchzuiterieren, und dann ähnlich wie bei Pairsum vorgehen.
+
+procedure triplets(X):
+    for k in X:
+        i = 0
+        j = n-1
+        while i < j:
+            if (X[i] + X[j] == X[k]):
+                [push current triplet {X[i], X[j], X[k]} to output]
+                i++
+                j++
+            else if (X[i] + X[j] < X[k]):
+                i++
+            else:
+                j--
+    return output
+
+
+Dieser Algorithmus hat folgende Laufzeit:
+    Zunächst wird eine Schleife erstellt, die alle k in der Eingabe X durchiteriert. Also n Mal. Daraufhin wird in der inneren Funktion
+    ein zu Pairsum identischer Vorgang gemacht. Wir wissen, dass Pairsum eine Laufzeit von O(n*log(n)) hat. Nun machen wir das ganze wieder
+    n Mal, und so müssen wir n wieder dazumultiplizieren. Es gilt also O(n^2*log(n))
