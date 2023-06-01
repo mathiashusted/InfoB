@@ -21,7 +21,7 @@ void increase(int* aptr){
 
 // Vor: Referenz wird als Argument weitergegeben
 // Erg: Keins
-// Eff: 
+// Eff: Inkrementiert die Variable, dessen Adresse als Parameter weitergegeben wurde
 void increaseImproved(int* aptr){
     (*aptr)++;
 }
