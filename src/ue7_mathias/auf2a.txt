@@ -1,0 +1,18 @@
+Gruppe M. Husted, A. Malze, S. Kutscher
+
+2a) Was ist der Unterschied zwischen einem Pointer und einer Referenz?
+
+Der Unterschied zwischen einem Pointer un einer Referenz ist, dass eine Referenz einer bereits
+existierenden Variable einen neuen Namen zuweist, während ein Pointer die Adresse einer anderen
+Variable enthält. Man könnte eine Referenz also als "Alias" bezeichnen.
+
+Außerdem kann eine Referenz nicht verändert werden, um eine andere Variable zu enthalten.
+Die Referenz ist direkt an die Variable gebunden, der sie zugewiesen ist. Darum muss sie bei
+der Deklaration direkt initialisiert werden.
+
+Ein Pointer (Zeiger) hingegen enthält nur die Adresse einer Variable, und ist nicht zwangsläufig
+an diese gebunden. Ein wichtiger Unterschied ist auch, dass ein Pointer seine *eigene*
+Speicheradresse besitzt. Ein Pointer muss nicht bei der Deklaration initialisiert werden, aber
+bei der Initialisation muss er einer Referenz zugewiesen werden.
+
+Bsp: int *i = &j
