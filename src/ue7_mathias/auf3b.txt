@@ -1,0 +1,35 @@
+Gruppe M. Husted, A. Malze, S. Kutscher
+
+
+== Erklären Sie die folgenden Ausgaben ==
+
+a: 14                           a ist im Speicherplatz 14 (siehe a))
+&a: 0x7ffffbc80a24              Adresse von A
+Rufe ref(a) auf                 Funktion ref(a) wird aufgerufen
+&alpha: 0x7ffffbc80a24          a wurde an ref(a) per Call-By-Reference weitergegeben und heißt dort "alpha"
+alpha: 14                       alpha (&a) ist 14. Achtung: Wird aber direkt danach inkrementiert
+
+a: 15                           Wieder aus der Funktion ref(a) raus. a wurde inkrementiert
+&a: 0x7ffffbc80a24              Adresse von a bleibt identisch
+Rufe val(a) auf                 
+&alpha: 0x7ffffbc809fc          Adresse von der LOKALEN alpha-Variable (nicht die Adresse von a, sondern eine Kopie davon!)
+alpha: 15                       alpha = 15, wird direkt danach inkrementiert, ABER nach der Funktion aus dem Speicher entfernt. a verändert sich nicht
+
+a: 15                           a immer noch 15
+c: 0x7ffffbc80a24               Adresse, auf die Pointer c zeigt (Adresse von a)
+&c: 0x7ffffbc80a18              Adresse vom Pointer c selbst (also auch a)
+Rufe func1(c) auf
+&alpha: 0x7ffffbc809f8          Adresse vom lokalen (innerhalb von func1) Pointer
+alpha: 0x7ffffbc80a24           Adresse, auf die der Pointer zeigt (alpha->c->a, also Adresse von a)
+                                alpha wird danach inkrementiert, allerdings passiert nichts, da a unberührt bleibt. Lediglich die Adresse
+                                wird um 1 inkrementiert, allerdings bleibt dieser Wert nicht außerhalb der Funktion bestehen.
+                                Die Adresse wurde nicht mit weitergegeben. Dafür müsste man *alpha inkrementieren, was erst in func2 passiert.
+
+c: 0x7ffffbc80a24               Adresse von a
+&c: 0x7ffffbc80a18              Adresse vom Pointer, der auf a zeigt
+Rufe func2(c) auf
+&alpha: 0x7ffffbc809f8          Adresse vom lokelen Pointer wieder
+alpha: 0x7ffffbc80a24           Adresse vom Pointer c selbst (also auch a)
+c: 0x7ffffbc80a24               Adresse von a (c->a)
+&c: 0x7ffffbc80a18              Adresse von c selbst
+a: 16                           Da a in func2 inkrementiert wurde, ist a nun 16

@@ -1,0 +1,9 @@
+Gruppe M. Husted, A. Malze, S. Kutscher
+
+// std::cout << (*a) << std::endl; Warum geht das nicht?
+// std::cout << (*e) << std::endl; Warum geht das nicht?
+
+Diese Befehle sind nicht möglich, da a auf keine andere Variable als sich selbst zeigt. a ist kein Pointer.
+
+Das gleiche gilt für e. e hat keine eigene Speicheradresse, sondern ist eine Referenz oder "Alias" für a.
+Man könnte sagen: e zeigt nicht auf eine andere Variable, sondern "ist" die Variable selbst.
