@@ -1,0 +1,12 @@
+/*
+Code von gromdimon
+02.06.2023
+*/
+
+//**********************************************************************************************
+// AUFGABE 2a
+
+Was ist der Unterschied zwischen einem Pointer und einer Referenz?
+
+Pointer: Pointer sind Variablen, die die Adresse einer anderen Variable speichern.
+Referenz: Referenzen sind Aliase für andere Variablen.
