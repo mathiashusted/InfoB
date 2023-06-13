@@ -99,14 +99,49 @@ void mergeSort(std::vector<int>& elems){
   mergeSortHelp(elems, 0, elems.size());
 }
 
-void mergeSortSWP(std::vector<schluesselWertPaar<int, std::string>> swp) {
+
+// Vor:
+// Erg: Sortierter Vektor aus Schlüssel-Werte-Paaren, nach Schlüssel sortiert
+// Eff: 
+std::vector<schluesselWertPaar<int, std::string>> mergeSortSWP(std::vector<schluesselWertPaar<int, std::string>> & swp) {
     std::vector<int> swpvec;
     for (unsigned i = 0; i < swp.size(); i++) {
         swpvec.push_back(swp[i].getKey());
     }
     mergeSort(swpvec);
+    std::vector<schluesselWertPaar<int, std::string>> returnVec;
+    for (unsigned i = 0; i < swpvec.size(); i++) {
+      for (unsigned j = 0; j < swp.size(); j++) {
+        if (swpvec[i] == swp[j].getKey()) {
+          returnVec.push_back(swp[j]);
+          break;
+        }
+      }
+    }
+    return returnVec;
 }
 
-int main() {
 
+// 3c) Ausführlicher Test
+int main() {
+  schluesselWertPaar<float, int> swp(236.2, 6527); // Schlüssel-Werte-Paar mit alternativen Datentypen (Key: Float, Value: Int)
+  schluesselWertPaar<float, int> swp2(195.67, 5727);
+  std::cout << "swp (float) < swp2: " << (swp < swp2) << "\n"; // Können verglichen werden, auch wenn der Datentyp des Keys nicht int ist
+  swp.setKey(571.2);
+  std::cout << "Neuer Key von swp: " << swp.getKey() << " mit Value " << swp.getValue() << "\n";
+  std::vector<schluesselWertPaar<int, std::string>> test;
+  schluesselWertPaar<int, std::string> paar1(3, "Paar 1");
+  schluesselWertPaar<int, std::string> paar2(7, "Paar 2");
+  schluesselWertPaar<int, std::string> paar3(1, "Paar 3");
+  schluesselWertPaar<int, std::string> paar4(11, "Paar 4");
+  schluesselWertPaar<int, std::string> paar5(9, "Paar 5");
+  test.push_back(paar1);
+  test.push_back(paar2);
+  test.push_back(paar3);
+  test.push_back(paar4);
+  test.push_back(paar5);
+  std::vector<schluesselWertPaar<int, std::string>> testSorted = mergeSortSWP(test); // Wird aufsteigend sortiert
+  for (unsigned i = 0; i < testSorted.size(); i++) {
+    std::cout << i << "-tes Element: " << testSorted[i].getKey() << ", " << testSorted[i].getValue() << "\n";
+  }
 }
