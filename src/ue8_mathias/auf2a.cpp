@@ -7,7 +7,7 @@ class Escooter {
     private:
         unsigned ps;
         unsigned gewicht;
-        std::string *farbe;
+        std::string farbe;
         unsigned km;
     public:
         //Vor:
@@ -16,17 +16,14 @@ class Escooter {
         Escooter(unsigned aps, unsigned agewicht, std::string afarbe, unsigned akm) {
             this -> ps = aps;
             this -> gewicht = agewicht;
-            this -> farbe = new std::string(afarbe);
+            this -> farbe = afarbe;
             this -> km = akm;
         }
         //Vor:
         //Erg:
         //Eff: Löscht Instanz von Escooter
         ~Escooter() {
-            this -> ps = 0;
-            this -> gewicht = 0;
-            this -> km = 0;
-            delete this -> farbe;
+            std::cout << "Der E-Scooter wurde gelöscht.\n";
         }
         // Überlädt den < Operator, sodass immer die PS-Zahl verglichen wird
         bool operator<(const Escooter & s) {
@@ -42,8 +39,7 @@ class Escooter {
         // Erg:
         // Eff: Ändert die Farbe
         void umlackieren(std::string newFarbe) {
-            delete this -> farbe;
-            this -> farbe = new std::string(newFarbe);
+            this -> farbe = newFarbe;
         }
         // Vor:
         // Erg:
@@ -57,6 +53,13 @@ class Escooter {
         void beladen(unsigned newGewicht) {
             this -> gewicht = newGewicht;
         }
+
+        // Vor:
+        // Erg: Gibt die Farbe des E-Scooters zurück
+        // Eff: 
+        std::string getFarbe() {
+            return this -> farbe;
+        }
 };
 
 int main() {
@@ -65,9 +68,12 @@ int main() {
     vespa.fahren(285);
 
     Escooter peugeot(4, 76, "grün", 0);
+    peugeot.umlackieren("gelb");
 
     if (vespa < peugeot)
         std::cout << "Die Vespa hat weniger PS\n";
     else
         std::cout << "Die Vespa hat mehr PS\n";
+    
+    std::cout << "Der Peugeot hat die Farbe " << peugeot.getFarbe() << std::endl;
 }
