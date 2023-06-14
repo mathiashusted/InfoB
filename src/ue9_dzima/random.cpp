@@ -145,8 +145,20 @@ public:
   }
 };
 
+// Destructor testing
+
+class parent {
+  // private destructor
+  ~parent() { cout << "destructor called" << endl; }
+
+public:
+  parent() { cout << "constructor called" << endl; }
+  void destruct() { delete this; }
+};
+
 int main() {
   // Pointers gamearound
+  cout << "-------------------" << endl;
   int p = 10;
   int *ptr = &p;
   cout << "Pointers:" << endl;
@@ -155,9 +167,11 @@ int main() {
   cout << "ptr: " << ptr << endl;
   cout << "ptr*: " << *ptr << endl;
   cout << "&ptr: " << &ptr << endl;
+  cout << "-------------------" << endl;
   cout << endl << endl;
 
   // Person OOP testing
+  cout << "-------------------" << endl;
   Person max;
   max.setName("Maaaax");
   printPerson(max);
@@ -166,12 +180,18 @@ int main() {
   danila->setName("Danila");
   danila->setAge(27);
   printPerson(*danila);
+  cout << "-------------------" << endl;
+  cout << endl << endl;
 
   // Copy
+  cout << "-------------------" << endl;
   Person max2 = max;
   cout << &max2 << max2.getName() << endl;
+  cout << "-------------------" << endl;
+  cout << endl << endl;
 
   // Heredity
+  cout << "-------------------" << endl;
   Line line(1, 2, 3, 4, 5, 6);
   Rectangle rect(1, 2, 3, 4, 5, 6);
   line.draw();
@@ -179,4 +199,19 @@ int main() {
 
   Line2 line2;
   line2.ddraw();
+  cout << "-------------------" << endl;
+  cout << endl << endl;
+
+  // Destructor
+  cout << "-------------------" << endl;
+  parent *par;
+  par = new parent;
+  // destructor called
+  par->destruct();
+  cout << "-------------------" << endl;
+  cout << endl << endl;
+  cout << "-Desctructors work-" << endl;
+  cout << "-------------------" << endl;
+
+  return 0;
 }
