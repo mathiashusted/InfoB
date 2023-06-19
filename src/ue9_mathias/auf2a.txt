@@ -1,0 +1,28 @@
+Gruppe M. Husted, A. Malze, S. Kutscher
+
+Um eine ADT Queue mittels einer verketteten Liste zu implementieren, müssen einige Funktionen beachtet
+werden.
+
+Wir brauchen zunächst einen privaten Struct, um die Verkettung zu ermöglichen. Das könnte wie folgt aussehen:
+
+struct Node {
+    E data;
+    Node * next;
+};
+
+Wir brauchen zudem zwei Pointer, die jeweils auf den Kopf (head) und das Ende (tail) zeigen.
+
+In der is_empty() Funktion betrachten wir, ob head == NULL ist. Gibt es kein erstes Element, so gibt es
+auch kein weiteres.
+
+Für die enQueue() Funktion müssen wir ein Element ans Ende hinzufügen. Das bedeutet, wir müssen für
+unsere verkettete Liste erst einen neuen Node erstellen, und im Anschluss den Kopf und das Ende aktualisieren,
+für den Fall, dass diese vorher NULL waren. Andernfalls aktualisieren wir den Nachfolger des vorherigen
+Ende, und setzen unser neues Element als Ende der Liste.
+
+Für die deQueue() Funktion löschen wir das Element, das am Anfang unserer Liste steht. Das heißt, wir
+setzen zuerst den Inhalt des aktuellen Kopfes auf NULL, und setzen danach den Kopf auf den Nachfolger des
+aktuellen Kopfes.
+
+Für die front() Funktion gibt einfach den Inhalt des Kopfes zurück, falls er existiert.
+
