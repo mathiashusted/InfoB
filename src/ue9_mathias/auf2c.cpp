@@ -71,7 +71,7 @@ template <typename E> class adtqueue {
         E front() {
             return this->head;
         }
-};¨
+};
 
 int main() {
     adtqueue<int> adt;
