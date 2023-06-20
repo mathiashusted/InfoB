@@ -1,0 +1,25 @@
+Gruppe M. Husted, A. Malze, S. Kutscher
+
+(b) In einigen Anwendungen ist es hilfreich, den ADT Wörterbuch um sogenannte Bereichsabfragen
+zu erweitern. Hierzu müssen die Schlüssel aus einem total geodneten Universum stammen. Bei
+einer Bereichsabfrage sind die Eingabe zwei Werte a ≤ b und es werden alle Werte im Wörterbuch
+gesucht, deren Schlüssel zwischen a und b liegen.
+
+
+(i) Beschreiben Sie verbal oder mit Pseudocode, wie eine Bereichsabfrage mit Hilfe des Ansatz
+mit dem sortierten Array implementiert werden kann.
+
+Man müsste eine Funktion implementieren, die ein Array zurückgibt, und zwei Werte a, b als Parameter nimmt.
+
+Dann müsste man mit get() herausfinden, an welcher Stelle sich die Elemente mit Keys a und b befinden.
+Daraufhin kann man dann das Array durchiterieren, und alle Elemente zum Rückgabearray hinzufügen, die
+zwischen diesen beiden Werten liegt.
+
+So hat man am Ende ein sortiertes Array (da Array von vorneherein sortiert), das man zurückgeben kann.
+
+
+
+(ii) Beschreiben Sie an welchen Stellen eines binären Suchbaums die Elemente zwischen a und
+b zu finden sind.
+
+Es kommt darauf an, wo sich die Zahl im Verhältnis zur Wurzel befindet.
