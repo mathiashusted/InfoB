@@ -39,7 +39,7 @@ template <typename K, typename V> class adtdict {
 
         // Eff: Löscht die Instanz von Node
         ~adtdict() {
-            delete this->dictionary;
+            delete [] this->dictionary;
         }
 
         // Hilfsfunktion

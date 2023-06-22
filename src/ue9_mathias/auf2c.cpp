@@ -30,6 +30,39 @@ template <typename E> class adtqueue {
             }
             delete temp;
         }
+        // Eff: Eine andere Queue wird von this kopiert
+        adtqueue(const adtqueue & other) {
+            this->head = NULL;
+            this->tail = NULL;
+
+            Node* temp = other.head;
+
+            while (temp != NULL) {
+                enqueue(temp->data);
+                temp = temp->next;
+            }
+        }
+        // Eff: Löscht Elemente von this, und weist ihm stattdessen einer Kopie von other zu
+        adtqueue& operator=(const adtqueue & other) {
+            if (this != other) {
+                Node* temp = this->head;
+                while (temp->next != NULL) {
+                    temp = this->head->next;
+                    delete this->head;
+                    this->head = temp;
+                }
+
+                if (!other.is_empty()) {
+                    temp = other.head;
+                    while (temp != NULL) {
+                        enqueue(temp->data);
+                        temp = temp->next;
+                    }
+                }
+                delete temp;
+            }
+            return *this;
+        }
         // Erg: True, falls head == NULL, sonst false
         bool is_empty() {
             return (head == NULL) ? true : false;
