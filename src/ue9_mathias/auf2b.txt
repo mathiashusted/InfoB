@@ -1,0 +1,39 @@
+Gruppe M. Husted, A. Malze, S. Kutscher
+
+Bei einer Implementation des ADT Queue mit einem Array dynamischer Größe, würde man wie folgt vorgehen.
+
+Zunächst muss über den Konstruktor eine Anfangskapazität gesetzt werden. Dies kann über ein Argument,
+oder automatisch erfolgen. Außerdem legen wir eine Zählervariable fest, um die Anzahl belegter
+Speicherplätze zu überwachen. Wir können dann innerhalb des Konstruktors unser Array queue erstellen.
+
+E* queue;
+int count;
+int capacity;
+
+is_empty() muss true liefern, falls count == 0. Dann werden nämlich keine Speicherplätze als belegt betrachtet.
+
+deQueue() muss über eine Schleife alle Elemente um eine Stelle nach vorne rücken, und im Anschluss count
+um 1 dekrementieren.
+
+enQueue() muss, falls die Kapazität vorhanden ist, das Element ans Ende des Arrays einfügen, und dann
+count um 1 inkrementieren. Falls nicht (Überlauf), kann entweder zuerst deQueue() ausgeführt und damit
+das erste Element gelöscht werden, und dann enQueue() ausgeführt werden, oder die Funktion macht gar nichts.
+
+front() gibt einfach queue[0] zurück.
+
+Zu Wrap-Around - Es gibt zwei Möglichkeiten (im obigen Beispiel haben wir das ohne Wrap-Around gelöst):
+    Ohne Wrap-Around: Man sorgt dafür, dass innerhalb des Arrays die Reihenfolge der Elemente immer erhalten
+        bleibt. D.h., dass bei deQueue alle Elemente immer um eine Stelle nach vorne rücken, sodass immer
+        der Kopf queue[0], und das Ende queue[count] bleibt.
+        Bei enQueue() muss im Falle einer Überschreibung alle Elemente um eine Stelle nach hinten verschoben
+        werden (damit wird das erste Element gelöscht), um Platz für ein neues zu schaffen.
+    Mit Wrap-Around: Der Vorteil ist, dass sich die Laufzeit mit Wrap-Around deutlich verbessert.
+        Hierzu würde man zusätzliche Variablen brauchen, um auf head und tail zu zeigen.
+        Bei deQueue() wird einfach head um 1 inkrementiert. Dies hat eine deutlich bessere Laufzeit,
+        da nicht alle Nachfolgerelemente nachrücken müssen.
+        Nun kann es dazu kommen, dass head > tail. Das ist aber kein Problem, da wir nicht auf die Reihenfolge
+        der Listenelemente angewiesen sind, sondern können auch das hinterste Elemente "vorne" in der Liste einfügen,
+        wenn wir bei queue[capacity] angekommen sind. Unsere Reihenfolge wird dann einfach von unseren Variablen verwaltet.
+        Einen Überlauf können wir auch so verhindern, indem wir count == capacity verbieten.
+        Bei enQueue() müsste man also das Element ans Ende der Liste einfügen, und dann tail++.
+        front() würde dann queue[head] ausgeben.
